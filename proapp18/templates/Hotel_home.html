@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- {% load static %}
+    <link rel="stylesheet" href="{% static 'css/hotel1.css'%}"> -->
+
+  <!-- BELOW GOOGLE FONTS LINK -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap" rel="stylesheet">
+    <title>Home_page</title>
+</head>
+<body>
+ {% include 'partials/_header.html' %}
+<div id="div1">   
+  
+  {% if data %}
+    {% for i in data%}
+    <div id="div-home">
+    <h4>{{i.restarunt_name}}</h4>
+    <a href="{% url 'proapp18:category_user' pk=i.id %}"><img src="{{i.image.url}}" alt="" height="
+    150px" width="150px"></a>
+    <h4>{{i.restarunt_address}}</h4>
+    <h4>{{i.restarunt_email}}</h4>
+    <h4>{{i.time}}</h4>
+    <h4>{{i.phone}}</h4>
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+  
+  {% include 'partials/_footer.html' %}
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/register.css'%}">
+    <title>Register_Page</title>
+   
+</head>
+<body>
+    <div>
+        <header id="header">
+            <img src="{%static '/images/burger.avif'%}" alt="">
+            <img src="{%static '/images/ima.jpeg'%}" alt="" id="img-2">
+        <li><a href="">AboutUs</a></li>
+        <li><a href="">ContactUs</a></li>
+        <li><a href="">Feedback</a></li>
+        </header>
+    </div>
+    <div id="demo1">
+        <div id="demo">
+            <h1  id="h1-reg">Register Page</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                    {{form.as_p}}
+                <input type="submit" value="Register">
+            </form>
+                <h3>Already User ?  <button><a href="{% url 'proapp18:login' %}">Login</a></button></h3>
+            
+           <button><a href="{% url 'proapp18:start' %}">start</a></button> 
+        </div>
+        <aside><img src="{%static '/images/pexels.jpeg'%}" alt="" id="aside-img"></aside>
+    </div>
+</body>
+</html>

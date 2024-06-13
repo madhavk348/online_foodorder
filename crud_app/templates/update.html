@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>update_page</title>
+    <style>
+       /* Default Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;font-size: xx-large;
+
+}
+
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    font-size: large;
+}
+
+/* Light Theme */
+.light-theme {
+    background-color: #fff;
+    color: #333;
+    
+}
+
+/* Dark Theme */
+.dark-theme {
+    background-color: #333;
+    color: #fff;
+}
+
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+    .container {
+        max-width: 100%;
+        padding: 10px;
+    }
+}
+
+/* Additional Styling for File Input */
+input[type="file"] {
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Hover Effect for File Input */
+input[type="file"]:hover {
+    background-color: #e0e0e0;
+}
+
+    </style>
+</head>
+<body> 
+    <div class="container">
+    {% include 'partials/_messages.html' %}
+    <form action="" method="post" enctype="multipart/form-data" class="colorful-theme">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="update" id="" class="dark-theme">
+    </form>
+  </div>
+</body>
+</html>

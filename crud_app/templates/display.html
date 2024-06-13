@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-size: large;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    {% if form %}
+    <table border="2">
+        <tr>
+            <th>category_id</th>
+            <th>category_name</th>
+            <th>category_desc</th>
+            <th>category_image</th>
+            <th>update</th>
+            <th>Delete</th>
+        </tr>
+        {% for i in form %}
+        <tr>
+           <td>{{i.category_id}}</td>
+          <td>{{i.category_name}}</td>
+            <td>{{i.category_desc}}</td>
+            <td><img src="{{i.category_image.url}}" alt="...." height="150" width="150"></td>
+            <td><a href="{% url 'crud_app:updates' pk=i.category_id %}"><button>update</button></a></td>
+            <td><a href="{% url 'crud_app:deletes' pk=i.category_id %}"><button>delete</button></a></td>
+             
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <h2>Data not found</h2>
+    {% endif %}
+    <div style="text-align: center;">
+     <a href="{% url 'crud_app:catagory'%}">  <input type="button"  value="category"></a> 
+    </div>
+    <a href="{% url 'owner_app:sample_home_view' %}"><button>
+        Home
+    </button></a>
+</body>
+</html>

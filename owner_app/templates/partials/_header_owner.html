@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <style>
+   body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5; /* Light gray background color */
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#spanowner {
+    color: #007BFF; /* Blue color for the user span */
+}
+
+header {
+    background-color: #333; /* Dark gray background for the header */
+    padding: 10px 0;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.a {
+    text-decoration: none;
+    color: #fff; /* White color for navigation links */
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.a:hover {
+    color: #007BFF; /* Blue color on hover */
+}
+
+@media (max-width: 768px) {
+    ul {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+    </style>
+    
+</head>
+<body>
+    <h1>welcome <span id="spanowner">{{user}}</span></h1>
+    <header id="header" class="">
+        <nav  class="" id="nav">
+            <ul id="ul-owner">
+                <li><a href="{% url 'crud_app:catagory'%}" class="a">Categorycreate</a></li>
+                <li><a href="{% url 'crud_app:items' %}" class="a">Itemscreate</a></li>
+                <li><a href="" class="a">AboutUs</a></li>
+                <li><a href="{% url 'owner_app:logout'%}" class="a">logout</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

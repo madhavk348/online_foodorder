@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <style>
+    body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* Light gray background color */
+    text-align: center;
+}
+
+#c-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+#main {
+    background-color: #fff; /* White background for each item */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift effect */
+    margin: 15px;
+    padding: 20px;
+    width: 300px;
+}
+
+h4 {
+    color: #333; /* Dark gray text color for category name */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #555; /* Slightly lighter gray text color for category description */
+}
+
+button {
+    background-color: #007BFF; /* Blue button color */
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+@media (max-width: 600px) {
+    #main {
+        width: 100%; /* Full width on small screens */
+    }
+}
+
+    
+</style>
+</head>
+<body>
+    {% include 'partials/_header_owner.html'%}
+    <div id="c-display">
+        {% if res %}
+            {% for i in res %}
+            <div id="main">
+                <h4>{{i.category_name}}</h4>
+                <a href="{% url 'owner_app:items_display_view' pk=i.category_id %}"><img src="{{i.category_image.url }}" alt="sorry" height="100px" width="100px"></a>
+                <p>{{i.category_desc}}</p>
+                <a href="{% url 'crud_app:updates' pk=i.category_id %}"><button>update</button></a>
+                <a href="{% url 'crud_app:deletes' pk=i.category_id %}"><button>Delete</button></a>
+                <a href="{% url 'crud_app:items' %}"><button>Items_create</button></a>
+            </div>
+            {% endfor %} 
+        {% endif%}
+    </div>
+
+    {% include 'partials/_footer.html' %}
+</body>
+</html>
